@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+watchdog
+scikit-learn
+numpy
+python-multipart
+websockets
+PyPDF2
+sentence-transformers
