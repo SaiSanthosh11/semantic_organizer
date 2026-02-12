@@ -4,3 +4,10 @@ __pycache__/
 *.pyc
 .env
 node_modules/
+
+echo venv/ >> .gitignore
+echo .venv/ >> .gitignore
+echo backend/venv/ >> .gitignore
+echo __pycache__/ >> .gitignore
+echo *.pyc >> .gitignore
+echo .env >> .gitignore

@@ -1,5 +1,5 @@
 import os
-import PyPDF2
+import pypdf
 
 def extract_text(file_path):
     _, ext = os.path.splitext(file_path)
@@ -19,7 +19,7 @@ def extract_text(file_path):
     elif ext == '.pdf':
         try:
             with open(file_path, 'rb') as f:
-                reader = PyPDF2.PdfReader(f)
+                reader = pypdf.PdfReader(f)
                 text = ""
                 for page in reader.pages:
                     text += page.extract_text() + "\n"
@@ -29,3 +29,18 @@ def extract_text(file_path):
             return ""
             
     return ""
+
+import hashlib
+
+def get_file_hash(file_path):
+    """Calculates SHA256 hash of a file."""
+    sha256_hash = hashlib.sha256()
+    try:
+        with open(file_path, "rb") as f:
+            # Read and update hash string value in blocks of 4K
+            for byte_block in iter(lambda: f.read(4096), b""):
+                sha256_hash.update(byte_block)
+        return sha256_hash.hexdigest()
+    except Exception as e:
+        print(f"Error hashing file {file_path}: {e}")
+        return None

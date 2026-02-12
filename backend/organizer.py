@@ -37,8 +37,33 @@ def organize_file(file_path, root_dir, analyzer):
         target_path = os.path.join(target_dir, filename)
         
         # Don't move if already there
-        if os.path.abspath(file_path) == os.path.abspath(target_path):
-            return
+        # Check for duplicates (filename collision OR content collision)
+        from processor import get_file_hash
+        src_hash = get_file_hash(file_path)
+        
+        # Check against ALL files in the target folder to find content duplicates
+        # even if filenames are different
+        if os.path.exists(target_dir):
+            for existing_file in os.listdir(target_dir):
+                existing_path = os.path.join(target_dir, existing_file)
+                if os.path.isfile(existing_path):
+                     dest_hash = get_file_hash(existing_path)
+                     if src_hash and dest_hash and src_hash == dest_hash:
+                         print(f"Duplicate content found (matches {existing_file}). Removing {filename}.")
+                         try:
+                            os.remove(file_path)
+                         except:
+                            pass
+                         return
+
+        if os.path.exists(target_path):
+             # Filename collision but DIFFERENT content (checked above)
+             # Rename source
+             base, ext = os.path.splitext(filename)
+             import time
+             new_filename = f"{base}_{int(time.time())}{ext}"
+             target_path = os.path.join(target_dir, new_filename)
+             print(f"Filename collision, renaming to {new_filename}")
 
         print(f"Moving {filename} to {folder_name}")
         shutil.move(file_path, target_path)
