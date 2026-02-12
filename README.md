@@ -86,10 +86,24 @@ Place screenshots in `demo/` as PNG/JPEG and reference them here, for example:
 
 Tips: create the `demo/` directory and add files named as above. The README can be updated to embed these with relative links once available.
 
+**Demo Gallery (place screenshots in `demo/`)**
+
+![SEFS Dashboard - overview](demo/screenshot-1.png)
+
+![SEFS Dashboard - inspector](demo/screenshot-2.png)
+
+![SEFS Dashboard - inspector detail](demo/screenshot-3.png)
+
+![SEFS Clusters view](demo/screenshot-4.png)
+
+![SEFS System log](demo/screenshot-5.png)
+
+![SEFS Clusters list](demo/screenshot-6.png)
+
 Optional quick links 🔗
 
 - Backend code: [backend](backend)
 - Frontend app: [frontend](frontend)
 - Example docs monitored by the system: [test_docs](test_docs)
 
-If you'd like, I can create a `demo/` folder and add placeholder images/videos now.
+If you'd like, I can add the actual screenshot files from the attachments into `demo/` now — I will need permission to write those image files into the repo. Alternatively you can copy your screenshots into `demo/` using the filenames above and they will appear inline in this README.
