@@ -72,11 +72,7 @@ Dev / build tools (frontend devDependencies):
 - Large models may be downloaded the first time `sentence-transformers` runs; allow time and ensure internet access.
 
 7. Demo videos of MVP 🎥
-
-Place demo video files (e.g., `mvp-demo.mp4`) in a `demo/` folder at the project root and link them here. Example:
-
-- `demo/mvp-demo.mp4` — short walkthrough showing automatic clustering, drag/drop, and file actions.
-
+  Video Link - https://drive.google.com/file/d/1YH_t3iY3ZWA0TdWj0IZDgkvx4tGXc28e/view?usp=drive_link
 8. Demo Images of MVP 🖼️
 
 Place screenshots in `demo/` as PNG/JPEG and reference them here, for example:
