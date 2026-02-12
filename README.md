@@ -72,7 +72,7 @@ Dev / build tools (frontend devDependencies):
 - Large models may be downloaded the first time `sentence-transformers` runs; allow time and ensure internet access.
 
 7. Demo videos of MVP 🎥
-  Video Link - https://drive.google.com/file/d/1YH_t3iY3ZWA0TdWj0IZDgkvx4tGXc28e/view?usp=drive_link
+  Video Link - [https://drive.google.com/file/d/1YH_t3iY3ZWA0TdWj0IZDgkvx4tGXc28e/view?usp=drive_link](https://drive.google.com/file/d/1gJvbvZgyjn9JaHn1U_dSpEzRlb_IQbj5/view?usp=sharing)
 8. Demo Images of MVP 🖼️
 
 Place screenshots in `demo/` as PNG/JPEG and reference them here, for example:
