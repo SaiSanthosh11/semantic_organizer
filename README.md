@@ -1,57 +1,95 @@
 # SEFS: Semantic Entropy File System
 
-SEFS is an intelligent, AI-powered document organizer that transforms your messy workspace into a semantically structured knowledge base. It uses state-of-the-art NLP (BERT) to understand the content of your files and automatically organizes them into meaningful clusters on your disk.
+1. Project title
 
-![SEFS Dashboard](backend/static/screenshot_placeholder.png) *(Preview available in project walkthrough)*
+SEFS — Semantic Entropy File System
 
-## 🚀 Key Features
+2. Description
 
-*   **Autonomous Organization**: Automatically extracts text from PDFs, Text, and Markdown files.
-*   **Semantic Clustering**: Uses BERT embeddings and DBSCAN/K-Means algorithms to group files by meaning, not just extension.
-*   **Dual-Sync Engine**: Bidirectional synchronization between the UI and your physical Windows filesystem.
-*   **High-Fidelity Dashboard**:
-    *   **Interactive Node Graph**: A 2D force-directed graph with glowing hubs and data particles.
-    *   **Dynamic Background**: Canvas-drawn grid that pans and zooms in perfect sync with your data.
-    *   **Floating File Inspector**: Detailed metadata, semantic keywords, and confidence scores in a glassmorphic overlay.
-*   **Direct File Actions**: View, Download, and Delete files directly from the web interface.
-*   **Auto-Cleanup**: Automatically removes empty semantic folders after file deletion or reorganization.
+SEFS is an AI-powered document organizer that analyzes and semantically clusters files on disk, providing a live web dashboard to explore and manage your organized knowledge base.
 
-## 🛠️ Technology Stack
+3. Tech stack used
 
-*   **Frontend**: React (Vite, TypeScript), Lucide-React, React-Force-Graph-2D.
-*   **Backend**: Python (FastAPI, Uvicorn), WebSockets for real-time updates.
-*   **AI/NLP**: Sentence-Transformers (all-MiniLM-L6-v2), Scikit-Learn (DBSCAN, K-Means, TF-IDF).
-*   **Monitoring**: Watchdog (Real-time OS file events).
+- **Frontend:** React + TypeScript, Vite, react-force-graph-2d, lucide-react
+- **Backend:** Python, FastAPI, Uvicorn, WebSockets
+- **AI/NLP:** sentence-transformers, scikit-learn (DBSCAN / K-Means), TF-IDF
+- **Utilities:** Watchdog for file monitoring, PyPDF2 for PDF extraction
 
-## 📥 Installation & Setup
+4. How to run the project
 
-### Prerequisites
-*   Node.js (v18+)
-*   Python 3.8+
+Prerequisites: Node.js (v18+), Python 3.8+
 
-### 1. Backend Setup
-```bash
+Backend (Windows example):
+
+```powershell
 cd backend
-python -m venv venv
-.\venv\Scripts\activate
-pip install fastapi uvicorn watchdog sentence-transformers scikit-learn pypdf
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
 python main.py
 ```
-*The server will start on `http://localhost:8001`.*
 
-### 2. Frontend Setup
+Frontend:
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-*The UI will be available on `http://localhost:5173`.*
 
-## 📂 Project Structure
+By default the frontend Vite dev server runs on http://localhost:5173 and the backend FastAPI server runs on http://localhost:8001 (confirm ports in backend/main.py).
 
-*   `/backend`: Semantic engine, file monitoring, and API endpoints.
-*   `/frontend`: React application and interactive visualization.
-*   `/test_docs`: The "Root" directory monitored by SEFS for file organization.
+5. Dependencies
 
-## 📜 License
-MIT License - Created with Antigravity AI.
+Backend (from backend/requirements.txt):
+
+- fastapi
+- uvicorn
+- watchdog
+- scikit-learn
+- numpy
+- python-multipart
+- websockets
+- PyPDF2
+- sentence-transformers
+
+Frontend (from frontend/package.json):
+
+- lucide-react
+- react
+- react-dom
+- react-force-graph-2d
+
+Dev / build tools (frontend devDependencies):
+
+- typescript, vite, eslint, @vitejs/plugin-react
+
+6. Any important instructions
+
+- Use a virtual environment for Python. Activate before installing dependencies.
+- If you change the monitored folder, update the path in backend/monitor.py or main.py.
+- For production, build the frontend (npm run build) and serve static files behind a production ASGI server (e.g., Uvicorn/Gunicorn with an ASGI adapter).
+- Large models may be downloaded the first time sentence-transformers runs; allow time and ensure internet access.
+
+7. Demo videos of MVP
+
+Place demo video files (e.g., mvp-demo.mp4) in a demo/ folder at the project root and link them here. Example:
+
+- demo/mvp-demo.mp4 — short walkthrough showing automatic clustering, drag/drop, and file actions.
+
+8. Demo Images of MVP
+
+Place screenshots in demo/ as PNG/JPEG and reference them here, for example:
+
+- demo/screenshot-dashboard.png — overview of the interactive graph
+- demo/screenshot-file-inspector.png — file inspector overlay
+
+Tips: create the demo/ directory and add files named as above. The README can be updated to embed these with relative links once available.
+
+Optional quick links
+
+- Backend code: [backend](backend)
+- Frontend app: [frontend](frontend)
+- Example docs monitored by the system: [test_docs](test_docs)
+
+If you'd like, I can create a demo/ folder and add placeholder images/videos now.
